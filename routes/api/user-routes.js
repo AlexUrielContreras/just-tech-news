@@ -49,17 +49,42 @@ router.post('/', (req, res) => {
     });
 });
 
+// login 
+router.post('/login', (req, res) => {
+    // use find one to locate the user instance email
+    User.findOne({
+        where: {
+            email: req.body.email
+        }
+    })
+    .then(dbUserData => {
+        if (!dbUserData) {
+            res.status(404).json({ message: 'No user with that email'})
+            return
+        };
+
+        const validPassword = dbUserData.checkPassword(req.body.password);
+        
+        if (!validPassword) {
+            res.status(400).json({ message: 'Incorrect Password!'})
+            return 
+        }
+        res.json({user: dbUserData, message: 'You are now logged in'})
+    })
+})
+
 // PUT
 router.put('/:id', (req, res) => {
     // req.body is the new data we want to use
     User.update(req.body, {
+        individualHooks: true,
         where: {
             // where we want to use the new data
             id: req.params.id
         }
     })
     .then(dbUserData => {
-        if (!dbUserData) {
+        if (!dbUserData[0]) {
             res.status(404).json({ message: 'No user found with this id '})
             return 
         };
