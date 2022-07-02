@@ -63,7 +63,7 @@ User.init(
         timestamps: false,
         // don't pluralize name of database table 
         freezeTableName: true,
-        //use underscore insteade of camel-casing
+        //use underscore instead of camel-casing
         underscore: true,
         // make it so our model name stays lowercase in the database
         modelName: 'user'
