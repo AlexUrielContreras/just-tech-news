@@ -5,3 +5,4 @@ A web application were users can sign-up and create blog post. This application 
 
 ## Table Of Contents
 - [Link](#link)
+- [Technology Used](#technology-used)
