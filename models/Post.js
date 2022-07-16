@@ -12,7 +12,7 @@ class Post extends Model {
                 where: {
                     id: body.post_id
                 },
-                attributes: ['id', 'post_url', 'title', 'createdAt', [sequelize.literal(`(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)`), 'vote_count']]
+                attributes: ['id', 'post_url', 'post_title', 'createdAt', [sequelize.literal(`(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)`), 'vote_count']]
             })
         })
     }
