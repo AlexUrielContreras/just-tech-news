@@ -6,7 +6,7 @@ A web application were users can sign-up and create blog post. This application 
 ## Table Of Contents
 - [Link](#link)
 - [Technologies Used](#technologies-used)
-- [Contacts](#contact)
+- [Contacts](#contacts)
 
 ## Link
 Deployed Application: <a href='https://mighty-stream-93793.herokuapp.com/'> Just Tech News </a>
